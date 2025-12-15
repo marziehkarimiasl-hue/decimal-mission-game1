@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>ماموریت نجات مدرسه اعداد</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="card">
+<h1>🎒 ماموریت نجات مدرسه اعداد</h1>
+<p class="story-text">
+🏫 مدرسه اعداد دچار اختلال شده است.<br>
+در هر بخش مدرسه یک قفل عددی وجود دارد که فقط با حل درست <strong>ضرب و تقسیم اعشاری</strong> باز می‌شود.<br><br>
+🎯 مأموریت تو این است که با حل ۱۰ مرحله، سیستم مدرسه را نجات بدهی.
+</p>
+<input id="playerName" placeholder="نام قهرمان را وارد کن">
+<button onclick="startGame()">🚀 شروع مأموریت</button>
+</div>
+<script>
+function startGame(){
+  const n=document.getElementById('playerName').value.trim();
+  if(!n){alert('نام را وارد کن');return;}
+  localStorage.setItem('playerName',n);
+  window.location='game.html';
+}
+</script>
+</body>
+</html>
