@@ -6,8 +6,6 @@ const fb=document.getElementById('feedback');
 const t=document.getElementById('timer');
 const bar=document.getElementById('bar');
 const title=document.getElementById('levelTitle');
-const ok=document.getElementById('correct');
-const bad=document.getElementById('wrong');
 let timer;
 
 function load(){
@@ -34,6 +32,23 @@ function load(){
   }
  },1000);
 }
+
+function check(c){
+ clearInterval(timer);
+ if(c===questions[i].a){score+=10;fb.textContent='✔ درست';}
+ else{show();}
+ sc.textContent=score;
+ setTimeout(()=>{i++;load();},2000);
+}
+
+function show(){fb.textContent='❌ پاسخ درست: '+questions[i].a;}
+
+function end(){
+ const name=localStorage.getItem('playerName');
+ document.body.innerHTML=`<div class='card'><h2>🎉 پایان مأموریت</h2><p>قهرمان: ${name}</p><p>⭐ امتیاز: ${score}</p><p>⏱ زمان کل: ${totalTime} ثانیه</p></div>`;
+}
+
+load();
 
 function check(c){
  clearInterval(timer);
